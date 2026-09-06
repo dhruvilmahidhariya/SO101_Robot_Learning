@@ -44,7 +44,7 @@ class SoArmCubeLiftEnvCfg(LiftEnvCfg):
                 "wrist_flex",
                 "wrist_roll",
             ],
-            scale=0.5,
+            scale=0.1,
             use_default_offset=True,
         )
         # Single revolute jaw gripper (PhysX: open~100 deg, close~-10 deg)
