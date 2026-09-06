@@ -5,6 +5,7 @@
 
 """Configuration for the LeRobot SO-101 arm (6-DOF + gripper)."""
 
+import math
 from pathlib import Path
 
 import isaaclab.sim as sim_utils
@@ -12,6 +13,10 @@ from isaaclab.actuators import ImplicitActuatorCfg
 from isaaclab.assets.articulation import ArticulationCfg
 
 SO101_USD_PATH = str(Path(__file__).resolve().parents[4] / "so101_new_calib.usd")
+
+# PhysX Inspector limits for gripper: close=-10 deg, open=100 deg.
+SO101_GRIPPER_OPEN_RAD = math.radians(95.0)
+SO101_GRIPPER_CLOSE_RAD = math.radians(-10.0)
 
 SO101_CFG = ArticulationCfg(
     spawn=sim_utils.UsdFileCfg(
@@ -27,14 +32,15 @@ SO101_CFG = ArticulationCfg(
         ),
     ),
     init_state=ArticulationCfg.InitialStateCfg(
+        # Angles below match PhysX Inspector degrees, stored as radians.
         joint_pos={
             "shoulder_pan": 0.0,
             "shoulder_lift": 0.0,
-            "elbow_flex": 0.0,
+            "elbow_flex": math.radians(30.0),
             "elbow_rotate": 0.0,
-            "wrist_flex": 0.0,
+            "wrist_flex": math.radians(60.0),
             "wrist_roll": 0.0,
-            "gripper": 0.5,
+            "gripper": SO101_GRIPPER_OPEN_RAD,
         },
     ),
     actuators={

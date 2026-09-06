@@ -17,7 +17,11 @@ from isaaclab_tasks.manager_based.manipulation.lift.config.soarm.lift_openarm_en
 # Pre-defined configs
 ##
 from isaaclab.markers.config import FRAME_MARKER_CFG  # isort: skip
-from isaaclab_assets.robots.so101 import SO101_CFG  # isort: skip
+from isaaclab_assets.robots.so101 import (  # isort: skip
+    SO101_CFG,
+    SO101_GRIPPER_CLOSE_RAD,
+    SO101_GRIPPER_OPEN_RAD,
+)
 
 
 @configclass
@@ -43,24 +47,24 @@ class SoArmCubeLiftEnvCfg(LiftEnvCfg):
             scale=0.5,
             use_default_offset=True,
         )
-        # Single revolute jaw gripper
+        # Single revolute jaw gripper (PhysX: open~100 deg, close~-10 deg)
         self.actions.gripper_action = mdp.BinaryJointPositionActionCfg(
             asset_name="robot",
             joint_names=["gripper"],
-            open_command_expr={"gripper": 0.5},
-            close_command_expr={"gripper": 0.0},
+            open_command_expr={"gripper": SO101_GRIPPER_OPEN_RAD},
+            close_command_expr={"gripper": SO101_GRIPPER_CLOSE_RAD},
         )
 
         # End-effector body used by pose commands (USD name is eef_frame_link)
         self.commands.object_pose.body_name = "eef_frame_link"
 
-        # Cube closer in for SO-101 reach
+        # Cube in SO-101 reach (1.5x smaller than previous 0.6 scale)
         self.scene.object = RigidObjectCfg(
             prim_path="{ENV_REGEX_NS}/Object",
-            init_state=RigidObjectCfg.InitialStateCfg(pos=[0.25, 0, 0.02], rot=[1, 0, 0, 0]),
+            init_state=RigidObjectCfg.InitialStateCfg(pos=[0.18, 0, 0.015], rot=[1, 0, 0, 0]),
             spawn=UsdFileCfg(
                 usd_path=f"{ISAAC_NUCLEUS_DIR}/Props/Blocks/DexCube/dex_cube_instanceable.usd",
-                scale=(0.6, 0.6, 0.6),
+                scale=(0.4, 0.4, 0.4),
                 rigid_props=RigidBodyPropertiesCfg(
                     solver_position_iteration_count=16,
                     solver_velocity_iteration_count=1,
