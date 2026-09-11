@@ -178,6 +178,9 @@ for the lift-cube environment:
     +-------------------------+------------------------------+-----------------------------------------------------------------------------+
     | |cabi_openarm_uni|      | |cabi_openarm_uni-link|      | Grasp the handle of a cabinet's drawer and open it with the OpenArm robot   |
     +-------------------------+------------------------------+-----------------------------------------------------------------------------+
+    | |lift_so101|            | |lift_so101-link|            | Pick a cube and bring it to a sampled target position with the SO-101 arm  |
+    |                         |                              | (URDF/USD validated via cube-pick RL in Isaac Sim)                          |
+    +-------------------------+------------------------------+-----------------------------------------------------------------------------+
 
 .. |reach-franka| image:: ../_static/tasks/manipulation/franka_reach.jpg
 .. |reach-ur10| image:: ../_static/tasks/manipulation/ur10_reach.jpg
@@ -202,6 +205,7 @@ for the lift-cube environment:
 .. |reach_openarm_uni| image:: ../_static/tasks/manipulation/openarm_uni_reach.jpg
 .. |lift_openarm_uni| image:: ../_static/tasks/manipulation/openarm_uni_lift.jpg
 .. |cabi_openarm_uni| image:: ../_static/tasks/manipulation/openarm_uni_open_drawer.jpg
+.. |lift_so101| image:: ../_static/tasks/manipulation/so101_cube_pick.png
 
 .. |reach-franka-link| replace:: `Isaac-Reach-Franka-v0 <https://github.com/isaac-sim/IsaacLab/blob/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/reach/config/franka/joint_pos_env_cfg.py>`__
 .. |reach-ur10-link| replace:: `Isaac-Reach-UR10-v0 <https://github.com/isaac-sim/IsaacLab/blob/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/reach/config/ur_10/joint_pos_env_cfg.py>`__
@@ -235,6 +239,7 @@ for the lift-cube environment:
 .. |reach_openarm_uni-link| replace:: `Isaac-Reach-OpenArm-v0 <https://github.com/isaac-sim/IsaacLab/blob/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/reach/config/openarm/unimanual/joint_pos_env_cfg.py>`__
 .. |lift_openarm_uni-link| replace:: `Isaac-Lift-Cube-OpenArm-v0 <https://github.com/isaac-sim/IsaacLab/blob/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/lift/config/openarm/joint_pos_env_cfg.py>`__
 .. |cabi_openarm_uni-link| replace:: `Isaac-Open-Drawer-OpenArm-v0 <https://github.com/isaac-sim/IsaacLab/blob/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/cabinet/config/openarm/joint_pos_env_cfg.py>`__
+.. |lift_so101-link| replace:: `Isaac-Lift-Cube-SO101-v0 <https://github.com/isaac-sim/IsaacLab/blob/main/source/isaaclab_tasks/isaaclab_tasks/manager_based/manipulation/lift/config/soarm/joint_pos_env_cfg.py>`__
 
 
 Contact-rich Manipulation
@@ -1194,5 +1199,9 @@ inferencing, including reading from an already trained checkpoint and disabling 
       - **rsl_rl** (PPO), **rl_games** (PPO)
     * - Isaac-Open-Drawer-OpenArm-v0
       - Isaac-Open-Drawer-OpenArm-Play-v0
+      - Manager Based
+      - **rsl_rl** (PPO), **rl_games** (PPO)
+    * - Isaac-Lift-Cube-SO101-v0
+      - Isaac-Lift-Cube-SO101-Play-v0
       - Manager Based
       - **rsl_rl** (PPO), **rl_games** (PPO)

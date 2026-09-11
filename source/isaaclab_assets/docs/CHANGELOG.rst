@@ -1,6 +1,16 @@
 Changelog
 ---------
 
+0.2.5 (2026-09-11)
+~~~~~~~~~~~~~~~~~~
+
+Added
+^^^^^
+
+* Configuration for the LeRobot SO-101 arm (6-DOF + gripper) used by the cube-lift task.
+  Asset validated in Isaac Sim through cube-pick reinforcement learning.
+
+
 0.2.4 (2025-11-26)
 ~~~~~~~~~~~~~~~~~~
 

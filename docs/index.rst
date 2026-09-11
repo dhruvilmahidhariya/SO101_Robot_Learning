@@ -3,12 +3,22 @@ Welcome to Isaac Lab!
 
 .. figure:: source/_static/isaaclab.jpg
    :width: 100%
-   :alt: H1 Humanoid example using Isaac Lab
+   :alt: SO-101 cube pick task validated in Isaac Sim with Isaac Lab
 
 **Isaac Lab** is a unified and modular framework for robot learning that aims to simplify common workflows
 in robotics research (such as reinforcement learning, learning from demonstrations, and motion planning). It is built on
 `NVIDIA Isaac Sim`_ to leverage the latest simulation capabilities for photo-realistic scenes, and fast
 and efficient simulation.
+
+The LeRobot **SO-101** arm URDF/USD has been validated in Isaac Sim through the adapted cube-pick
+reinforcement learning task (``Isaac-Lift-Cube-SO101-v0``):
+
+.. figure:: source/_static/tasks/manipulation/so101_cube_pick.webm
+   :align: center
+   :figwidth: 100%
+   :alt: SO-101 cube pick reinforcement learning policy in Isaac Sim
+
+   Trained cube-pick policy on the SO-101 arm in Isaac Lab / Isaac Sim.
 
 The core objectives of the framework are:
 
@@ -28,7 +38,7 @@ and navigation tasks. A complete list is available in the `environments <source/
 Isaac lab is developed with specific robot assets that are now **Batteries-included** as part of the platform and are ready to learn! These robots include...
 
 - **Classic** Cartpole, Humanoid, Ant
-- **Fixed-Arm and Hands**: UR10, Franka, Allegro, Shadow Hand
+- **Fixed-Arm and Hands**: UR10, Franka, Allegro, Shadow Hand, SO-101
 - **Quadrupeds**: Anybotics Anymal-B, Anymal-C, Anymal-D, Unitree A1, Unitree Go1, Unitree Go2, Boston Dynamics Spot
 - **Humanoids**: Unitree H1, Unitree G1
 - **Quadcopter**: Crazyflie
