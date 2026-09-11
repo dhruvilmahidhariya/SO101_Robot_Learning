@@ -1,6 +1,19 @@
 Changelog
 ---------
 
+0.11.17 (2026-09-11)
+~~~~~~~~~~~~~~~~~~~~
+
+Added
+^^^^^
+
+* Added cube-lift task environments for the LeRobot SO-101 arm (adapted from the Franka/OpenArm cube-pick task).
+  The SO-101 URDF/USD was validated in Isaac Sim via reinforcement learning on this task.
+  * :class:`SoArmCubeLiftEnvCfg`; Gym ID ``Isaac-Lift-Cube-SO101-v0``.
+  * :class:`SoArmCubeLiftEnvCfg_PLAY`; Gym ID ``Isaac-Lift-Cube-SO101-Play-v0``.
+  * Supports **rsl_rl** (PPO) and **rl_games** (PPO) agent configurations.
+
+
 0.11.16 (2026-04-21)
 ~~~~~~~~~~~~~~~~~~~~
 

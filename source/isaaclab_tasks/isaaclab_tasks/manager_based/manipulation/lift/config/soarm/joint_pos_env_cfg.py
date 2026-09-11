@@ -11,7 +11,7 @@ from isaaclab.utils import configclass
 from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
 
 from isaaclab_tasks.manager_based.manipulation.lift import mdp
-from isaaclab_tasks.manager_based.manipulation.lift.config.soarm.lift_openarm_env_cfg import LiftEnvCfg
+from isaaclab_tasks.manager_based.manipulation.lift.config.soarm.lift_soarm_env_cfg import LiftEnvCfg
 
 ##
 # Pre-defined configs
@@ -44,7 +44,7 @@ class SoArmCubeLiftEnvCfg(LiftEnvCfg):
                 "wrist_flex",
                 "wrist_roll",
             ],
-            scale=0.5,
+            scale=0.1,
             use_default_offset=True,
         )
         # Single revolute jaw gripper (PhysX: open~100 deg, close~-10 deg)

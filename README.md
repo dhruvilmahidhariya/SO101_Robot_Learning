@@ -1,4 +1,4 @@
-![Isaac Lab](docs/source/_static/isaaclab.jpg)
+![SO-101 cube pick in Isaac Lab / Isaac Sim](docs/source/_static/isaaclab.jpg)
 
 ---
 
