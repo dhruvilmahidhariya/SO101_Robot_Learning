@@ -21,6 +21,7 @@ from isaaclab_assets.robots.so101 import (  # isort: skip
     SO101_CFG,
     SO101_GRIPPER_CLOSE_RAD,
     SO101_GRIPPER_OPEN_RAD,
+    make_so101_wrist_camera_cfg,
 )
 
 
@@ -92,14 +93,20 @@ class SoArmCubeLiftEnvCfg(LiftEnvCfg):
             ],
         )
 
+        # Wrist cam spawned at runtime from So101WristCameraCalibCfg (not in USD).
+        # Swap calib in isaaclab_assets.robots.so101 for your own hand-eye / intrinsics.
+        # Viz: TERM=xterm ./isaaclab.sh -p scripts/environments/zero_agent.py \
+        #        --task Isaac-Lift-Cube-SO101-v0 --enable_cameras
+        self.scene.wrist_cam = make_so101_wrist_camera_cfg()
+
 
 @configclass
 class SoArmCubeLiftEnvCfg_PLAY(SoArmCubeLiftEnvCfg):
     def __post_init__(self):
         # post init of parent
         super().__post_init__()
-        # make a smaller scene for play
-        self.scene.num_envs = 50
+        # make a smaller scene for play (keep low when --enable_cameras)
+        self.scene.num_envs = 1
         self.scene.env_spacing = 2.5
         # disable randomization for play
         self.observations.policy.enable_corruption = False
