@@ -15,7 +15,10 @@ from isaaclab.sensors import CameraCfg
 from isaaclab.utils import configclass
 
 # Robot mesh/articulation only — camera frame is NOT baked into this USD.
-SO101_USD_PATH = str(Path(__file__).resolve().parents[4] / "so101_new_calib.usd")
+# Local package (wrapper + configuration/); avoids absolute /home/.../work refs.
+SO101_USD_PATH = str(
+    Path(__file__).resolve().parents[4] / "self_model" / "so101_new_calib" / "so101_new_calib.usd"
+)
 
 # PhysX Inspector limits for gripper: close=-10 deg, open=100 deg.
 SO101_GRIPPER_OPEN_RAD = math.radians(95.0)
